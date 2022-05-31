@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 import "./App.css";
 
@@ -17,11 +18,12 @@ const App = () => {
   const onClickStart = () => {
     setStart(true);
     setResult(0);
+    const num = Math.floor(Math.random() * (10000 + 1 - 3000) + 3000);
     setTimeout(() => {
       setCircleColor("red");
       const start = performance.now();
       setStartTime(start);
-    }, 3000);
+    }, num);
   };
 
   const onClickEnd = () => {
@@ -42,9 +44,13 @@ const App = () => {
         />
       </svg>
       {start ? (
-        <button onClick={onClickEnd}>click!</button>
+        <Button onClick={onClickEnd} variant="outlined">
+          click!
+        </Button>
       ) : (
-        <button onClick={onClickStart}>start!</button>
+        <Button onClick={onClickStart} variant="outlined">
+          start!
+        </Button>
       )}
       <h1>{"time: " + result + "msec"}</h1>
     </div>
