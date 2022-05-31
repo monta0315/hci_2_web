@@ -27,10 +27,12 @@ const App = () => {
   };
 
   const onClickEnd = () => {
-    const end = performance.now();
-    setResult(end - startTime);
-    setCircleColor("green");
-    setStart(false);
+    if (circleColor === "red") {
+      const end = performance.now();
+      setResult(end - startTime);
+      setCircleColor("green");
+      setStart(false);
+    }
   };
 
   return (
